@@ -10,7 +10,7 @@ class Store {
         {countOfCells: 10, rows: 5},
         {countOfCells: 12, rows: 6}];
     //По умолчанию будут средний уровень
-    level = 0;
+    level = 1;
     cells = getData(this.settings[this.level].countOfCells);
     currentCell = null;
     isGameStarted = false;
@@ -26,6 +26,10 @@ class Store {
         startGame.play();
         this.cells.map(item => item.isClicked = false);
         this.isGameStarted = true;
+    };
+    changeLevel = (level) => {
+        this.level = level;
+        this.restartGame()
     };
     restartGame = () => {
         this.cells = getData(this.settings[this.level].countOfCells);

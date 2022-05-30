@@ -5,6 +5,7 @@ import RenderTableRow from '../RenderTableRow/RenderTableRow';
 import {StartGameButton} from '../StartGameButton/StartGameButton';
 import {RetartGameButton} from '../RetartGameButton/RetartGameButton';
 import {GameResult} from '../GameResult/GameResult';
+import {ChooseLevel} from '../ChooseLevel/ChooseLevel';
 
 
 const App = observer(() => {
@@ -18,7 +19,14 @@ const App = observer(() => {
         return (
             <div>
                 <div className={'text-center mt-3 mb-3'}>
-                    {store.isGameStarted ? '' : <StartGameButton/>}
+                    {store.isGameStarted ? '' :
+                       <>
+                           <StartGameButton/>
+
+                           <ChooseLevel />
+                       </>
+
+                    }
                 </div>
                 {cellRows}
                 {isGameOver ?
