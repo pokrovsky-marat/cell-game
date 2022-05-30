@@ -3,18 +3,19 @@ import './cell.css';
 import {observer} from 'mobx-react-lite';
 import {store} from '../../store/store';
 
-//observer функция которая оборачивает наш реакт-компонент
 const Cell = observer(({id, img, isClicked}) => {
+    let onClickHandler = () => {
+        store.cellClickHandler(id);
+    };
+    let frontSideStyle = isClicked ? 'front front-clicked' : 'front';
+    let backSideStyle = isClicked ? 'back back-clicked' : 'back';
     return (
-        <div onClick={() => {
-            store.cellClickHandler(id);
-        }} className="cell">
-            <div className={`front ${isClicked ? 'front-clicked' : ''}`}>
+        <div onClick={onClickHandler} className="cell">
+            <div className={frontSideStyle}>
                 <img width="70px" src={`./img/${img}`}/>
             </div>
-            <div className={`back ${isClicked ? 'back-clicked' : ''}`}>
+            <div className={backSideStyle}>
                 <img width="30px" src={`./img/PLAYING_CARD_BACK.svg`}/>
-
             </div>
         </div>);
 });
