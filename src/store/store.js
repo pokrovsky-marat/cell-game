@@ -3,7 +3,15 @@ import {makeAutoObservable} from 'mobx';
 import getData, {applause, startGame, clickSound, clickSoundSuccess} from '../data/data';
 
 class Store {
-    cells = getData();
+    //В массиве settings будут хр. настройки игры, от 0 самый легкий до 4 самый сложный
+    settings = [{countOfCells: 8, rows: 2},
+        {countOfCells: 12, rows: 3},
+        {countOfCells: 16, rows: 4},
+        {countOfCells: 20, rows: 4},
+        {countOfCells: 24, rows: 4}];
+    //По умолчанию будут средний уровень
+    level = 3;
+    cells = getData(this.settings[this.level].countOfCells);
     currentCell = null;
     isGameStarted = false;
     //Количество ходов сделанных игроком

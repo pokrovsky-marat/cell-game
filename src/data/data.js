@@ -14,11 +14,15 @@ let images = ['alarm.svg',
     'heart.svg',
     'telephone.svg',
     'yin-yang.svg'];
-export default function getData() {
-    //Дублируем, перемешиваем названия картинок, делаем из них объекты
-    let cells = shuffleArray(doubleItems(images));
+export default function getData(countOfCells) {
+    //Перемешиваем массив названий картинок
+    let cells = shuffleArray(images);
+    //Выбираем количество элементов в зависимости от уровня
+    cells = cells.slice(0, countOfCells);
+    //Дублируем и снова перемешиваем их
+    cells = shuffleArray(doubleItems(cells));
     return cells.map((item, idx) => ({id: idx, isClicked: true, img: item}));
 }
-export {clickSound, clickSoundSuccess,applause,startGame};
+export {clickSound, clickSoundSuccess, applause, startGame};
 
 
