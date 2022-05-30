@@ -4,13 +4,13 @@ import getData, {applause, startGame, clickSound, clickSoundSuccess} from '../da
 
 class Store {
     //В массиве settings будут хр. настройки игры, от 0 самый легкий до 4 самый сложный
-    settings = [{countOfCells: 8, rows: 2},
-        {countOfCells: 12, rows: 3},
-        {countOfCells: 16, rows: 4},
-        {countOfCells: 20, rows: 4},
-        {countOfCells: 24, rows: 4}];
+    settings = [{countOfCells: 4, rows: 4},
+        {countOfCells: 6, rows: 4},
+        {countOfCells: 8, rows: 4},
+        {countOfCells: 10, rows: 5},
+        {countOfCells: 12, rows: 6}];
     //По умолчанию будут средний уровень
-    level = 3;
+    level = 0;
     cells = getData(this.settings[this.level].countOfCells);
     currentCell = null;
     isGameStarted = false;
@@ -28,7 +28,7 @@ class Store {
         this.isGameStarted = true;
     };
     restartGame = () => {
-        this.cells = getData();
+        this.cells = getData(this.settings[this.level].countOfCells);
         this.isGameStarted = false;
         this.amountOfMoves = 0;
 

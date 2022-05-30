@@ -6,14 +6,27 @@ let clickSoundSuccess = new Audio('./sounds/success_click.mp3');
 let applause = new Audio('./sounds/s-aplodismentami.mp3');
 let startGame = new Audio('./sounds/start-game.mp3');
 
-let images = ['alarm.svg',
-    'cloud-drizzle.svg',
-    'emoji-smile.svg',
-    'globe.svg',
-    'hand-thumbs-up.svg',
-    'heart.svg',
-    'telephone.svg',
-    'yin-yang.svg'];
+// let images = ['alarm.svg',
+//     'cloud-drizzle.svg',
+//     'emoji-smile.svg',
+//     'globe.svg',
+//     'hand-thumbs-up.svg',
+//     'heart.svg',
+//     'telephone.svg',
+//     'yin-yang.svg'];
+let images = [
+    'alarm.svg', 'bucket.svg',
+    'camera.svg', 'cart.svg',
+    'cloud-drizzle.svg', 'emoji-smile.svg',
+    'envelope.svg', 'globe.svg',
+    'hand-thumbs-up.svg', 'hash.svg',
+    'heart-fill.svg', 'heart.svg',
+    'lightbulb.svg', 'lightning-charge.svg',
+    'magnet.svg', 'megaphone.svg',
+    'moon.svg', 'peace.svg',
+    'pencil.svg', 'telephone.svg', 'truck.svg',
+    'umbrella.svg', 'yin-yang.svg'
+];
 export default function getData(countOfCells) {
     //Перемешиваем массив названий картинок
     let cells = shuffleArray(images);
