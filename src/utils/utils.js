@@ -1,3 +1,5 @@
+//Изменение окончания слова "ход" в зависимости от их количества
+//До ста работает корректно
 function pickEndingForRuWordStep(number) {
     let lastDigit = number % 10;
     if (lastDigit === 1) return 'ход';

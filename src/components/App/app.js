@@ -2,21 +2,17 @@ import {observer} from 'mobx-react-lite';
 import {store} from '../../store/store';
 import {chunkArray, pickEndingForRuWordStep} from '../../utils/utils';
 import RenderTableRow from '../RenderTableRow/RenderTableRow';
+import {StartGameButton} from '../StartGameButton/StartGameButton';
+import {RetartGameButton} from '../RetartGameButton/RetartGameButton';
+
 
 const App = observer(() => {
         return (
-            <div className="app">
-                <h1 className="text-center mt-3">Угадайка</h1>
-                <p className="text-center fs-5">Запомните расположение клеточек, и кликайте последовательно на одинаковые
-                    картинки</p>
-                <div className={'text-center'}>
+            <div>
+                <div className={'text-center mt-3 mb-3'}>
                     {store.isGameStarted ? ''
-                        : <button onClick={() => {
-                            store.startGame();
-                        }} className={'mb-3 btn btn-secondary btn-lg'}>Начать Игру
-                        </button>
+                        : <StartGameButton/>
                     }
-
                 </div>
                 {/*Перед тем как мапить массив, делим его на 4 под массива*/}
                 {chunkArray(store.cells, 4).map((row, idx) => (<RenderTableRow
@@ -28,13 +24,10 @@ const App = observer(() => {
                         {store.gameOver()}
                         <p className={'text-center'}>Поздравляю вы закончили игру
                             за {store.amountOfMoves} {pickEndingForRuWordStep(store.amountOfMoves)}</p>
-                        <button onClick={() => {
-                            store.restartGame();
-                        }} className={'btn btn-secondary btn-large'}>Начать Новую Игру
-                        </button>
+                        <RetartGameButton/>
                     </div> : ''}
             </div>
         );
     }
 );
-export {App}
+export {App};
