@@ -21,6 +21,11 @@ class Store {
         makeAutoObservable(this);
     }
 
+    get isGameOver() {
+        return (this.cells.length === this.cells.filter(item => item.isClicked).length) &&
+            this.isGameStarted;
+    }
+
     startGame = () => {
         startGame.load();
         startGame.play();

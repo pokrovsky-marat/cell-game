@@ -1,8 +1,9 @@
 import React from 'react';
 import './cell.css';
 import {store} from '../../store/store';
+import {observer} from 'mobx-react';
 
-const Cell = ({id, img, isClicked}) => {
+const Cell = observer(({id, img, isClicked}) => {
     let onClickHandler = () => {
         store.cellClickHandler(id);
     };
@@ -17,6 +18,6 @@ const Cell = ({id, img, isClicked}) => {
                 <img width="30px" src={`./img/PLAYING_CARD_BACK.svg`}/>
             </div>
         </div>);
-};
+});
 
 export default Cell;
