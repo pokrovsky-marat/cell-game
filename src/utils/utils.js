@@ -2,9 +2,11 @@
 //До ста работает корректно
 function pickEndingForRuWordStep(number) {
     let lastDigit = number % 10;
+    let lastTwoDigits = number % 100;
+    if (lastTwoDigits === 11 || lastTwoDigits === 12 || lastTwoDigits === 13 || lastTwoDigits === 14) return 'ходов';
     if (lastDigit === 1) return 'ход';
-    else if (lastDigit < 5 && lastDigit > 1) return 'хода';
-    else return 'ходов';
+    if (lastDigit < 5 && lastDigit > 1) return 'хода';
+    return 'ходов';
 }
 
 //Продублировать элементы массива
