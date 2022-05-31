@@ -4,11 +4,11 @@ import getData, {applause, startGame, clickSound, clickSoundSuccess} from '../da
 
 class Store {
     //В массиве settings будут хр. настройки игры, от 0 самый легкий до 4 самый сложный
-    settings = [{countOfCells: 4, rows: 4},
-        {countOfCells: 6, rows: 4},
-        {countOfCells: 8, rows: 4},
-        {countOfCells: 10, rows: 5},
-        {countOfCells: 12, rows: 6}];
+    settings = [{countOfCells: 4, rows: 4, description: 'Лёгкий'},
+        {countOfCells: 6, rows: 4, description: 'Нормальный'},
+        {countOfCells: 8, rows: 4, description: 'Средний'},
+        {countOfCells: 10, rows: 5, description: 'Сложный'},
+        {countOfCells: 12, rows: 6, description: 'Очень сложный'}];
     //По умолчанию будут средний уровень
     level = 1;
     cells = getData(this.settings[this.level].countOfCells);
@@ -29,7 +29,7 @@ class Store {
     };
     changeLevel = (level) => {
         this.level = level;
-        this.restartGame()
+        this.restartGame();
     };
     restartGame = () => {
         this.cells = getData(this.settings[this.level].countOfCells);
