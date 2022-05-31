@@ -14,14 +14,15 @@ const App = observer(({store}) => {
             row={row}/>));
         return (
             <div>
-                <div className={'text-center mt-3 mb-3'}>
                     {store.isGameStarted ? '' :
                         <>
-                            <StartGameButton/>
+                            <div className='d-flex justify-content-center mt-3'>
+                                <StartGameButton/>
+                            </div>
                             <ChooseLevel/>
                         </>
                     }
-                </div>
+
                 {cellRows}
                 {store.isGameOver ?
                     <div className={'text-center fs-5 mt-3'}>

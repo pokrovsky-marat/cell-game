@@ -5,9 +5,9 @@ let ChooseLevel = () => {
         store.changeLevel(e.target.value);
     };
     return (
-        <div className="d-flex justify-content-center mt-3">
+        <div className="align-items-center d-flex flex-column flex-sm-row justify-content-center mt-3 mb-3">
             {store.settings.map((item, idx) => (
-                <div key={idx} className="form-check me-3">
+                <div key={idx} className=" form-check me-sm-3">
                     <input className="form-check-input" onChange={onChangeValue} checked={+idx === +store.level}
                            type="radio" value={idx}
                            name="level" id={`radioBtn${idx}`}/>

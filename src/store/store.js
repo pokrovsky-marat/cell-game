@@ -8,7 +8,7 @@ class Store {
         {countOfCells: 6, rows: 4, description: 'Нормальный'},
         {countOfCells: 8, rows: 4, description: 'Средний'},
         {countOfCells: 10, rows: 5, description: 'Сложный'},
-        {countOfCells: 12, rows: 6, description: 'Очень сложный'}];
+        {countOfCells: 12, rows: 6, description: 'Мастер'}];
     //По умолчанию будут средний уровень
     level = 1;
     cells = getData(this.settings[this.level].countOfCells);
