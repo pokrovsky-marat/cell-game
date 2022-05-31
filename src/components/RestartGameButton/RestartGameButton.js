@@ -1,6 +1,6 @@
 import {store} from '../../store/store';
 
-let RetartGameButton = () => {
+let RestartGameButton = () => {
     return (
         <button onClick={() => {
             store.restartGame();
@@ -8,4 +8,4 @@ let RetartGameButton = () => {
         </button>
     );
 };
-export {RetartGameButton};
+export {RestartGameButton};

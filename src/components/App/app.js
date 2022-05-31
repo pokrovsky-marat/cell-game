@@ -1,14 +1,12 @@
 import {observer} from 'mobx-react-lite';
-import {store} from '../../store/store';
-import {chunkArray, pickEndingForRuWordStep} from '../../utils/utils';
+import {chunkArray} from '../../utils/utils';
 import RenderTableRow from '../RenderTableRow/RenderTableRow';
 import {StartGameButton} from '../StartGameButton/StartGameButton';
-import {RetartGameButton} from '../RetartGameButton/RetartGameButton';
+import {RestartGameButton} from '../RestartGameButton/RestartGameButton';
 import {GameResult} from '../GameResult/GameResult';
 import {ChooseLevel} from '../ChooseLevel/ChooseLevel';
 
-
-const App = observer(() => {
+const App = observer(({store}) => {
         let isGameOver = (store.cells.length === store.cells.filter(item => item.isClicked).length) &&
             store.isGameStarted;
         //Делим массив на подмассивы в зависимости от уровня игры и мапимся по полученному массиву массивов
@@ -32,7 +30,7 @@ const App = observer(() => {
                 {isGameOver ?
                     <div className={'text-center fs-5 mt-3'}>
                         <GameResult/>
-                        <RetartGameButton/>
+                        <RestartGameButton/>
                     </div> : ''}
             </div>
         );
