@@ -18,13 +18,18 @@
     position: absolute;
     transition: transform .3s linear;
 }
-
+.front-img{
+    max-width: 70%;
+    height: auto;
+}
 .back {
     transform: perspective(600px) rotateY(0deg);
+    background-color:  #dee2e6;
 }
 
 .front {
     transform: perspective(600px) rotateY(180deg);
+
 }
 
 

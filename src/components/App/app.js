@@ -13,22 +13,28 @@ const App = observer(({store}) => {
             key={idx}
             row={row}/>));
         return (
-            <div>
-                    {store.isGameStarted ? '' :
-                        <>
-                            <div className='d-flex justify-content-center mt-3'>
-                                <StartGameButton/>
-                            </div>
-                            <ChooseLevel/>
-                        </>
-                    }
+            <div className="pt-3">
+                {store.isGameStarted ? '' :
+                    <>
+                        <div className="d-flex justify-content-center mt-3">
+                            <StartGameButton/>
+                        </div>
+                        <ChooseLevel/>
+                    </>
+                }
 
                 {cellRows}
+                {store.isGameStarted ?
+                    <div className={'text-center mt-4'}>
+                        <RestartGameButton/>
+                    </div> : ''}
+
                 {store.isGameOver ?
                     <div className={'text-center fs-5 mt-3'}>
                         <GameResult/>
-                        <RestartGameButton/>
                     </div> : ''}
+
+
             </div>
         );
     }

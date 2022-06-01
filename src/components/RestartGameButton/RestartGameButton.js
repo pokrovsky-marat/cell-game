@@ -4,7 +4,7 @@ let RestartGameButton = () => {
     return (
         <button onClick={() => {
             store.restartGame();
-        }} className={'btn btn-secondary btn-large'}>Начать Новую Игру
+        }} className={'btn btn-secondary btn-large'}>Начать Новую игру
         </button>
     );
 };

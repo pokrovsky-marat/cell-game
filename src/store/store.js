@@ -7,7 +7,7 @@ class Store {
     settings = [{countOfCells: 4, rows: 4, description: 'Лёгкий'},
         {countOfCells: 6, rows: 4, description: 'Нормальный'},
         {countOfCells: 8, rows: 4, description: 'Средний'},
-        {countOfCells: 10, rows: 5, description: 'Сложный'},
+        {countOfCells: 10, rows: 4, description: 'Сложный'},
         {countOfCells: 12, rows: 6, description: 'Мастер'}];
     //По умолчанию будут средний уровень
     level = 1;
