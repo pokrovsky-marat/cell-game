@@ -5,8 +5,12 @@ import {StartGameButton} from '../StartGameButton/StartGameButton';
 import {RestartGameButton} from '../RestartGameButton/RestartGameButton';
 import {GameResult} from '../GameResult/GameResult';
 import {ChooseLevel} from '../ChooseLevel/ChooseLevel';
+import {useContext} from 'react';
+import {StoreContext} from '../StoreProvider/StoreProvider';
 
-const App = observer(({store}) => {
+
+const App = observer(() => {
+        let store = useContext(StoreContext);
         //Делим массив на подмассивы в зависимости от уровня игры и мапимся по полученному массиву массивов
         let countRows = store.settings[store.level].rows;
         let cellRows = chunkArray(store.cells, countRows).map((row, idx) => (<RenderTableRow
@@ -19,7 +23,7 @@ const App = observer(({store}) => {
                         <div className="d-flex justify-content-center mt-3">
                             <StartGameButton/>
                         </div>
-                        <ChooseLevel/>
+                        <ChooseLevel settings={store.settings}/>
                     </>
                 }
 
@@ -31,10 +35,8 @@ const App = observer(({store}) => {
 
                 {store.isGameOver ?
                     <div className={'text-center fs-5 mt-3'}>
-                        <GameResult/>
+                        <GameResult amountOfMoves={store.amountOfMoves}/>
                     </div> : ''}
-
-
             </div>
         );
     }

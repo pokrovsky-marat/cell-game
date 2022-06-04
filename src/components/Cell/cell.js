@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './cell.css';
-import {store} from '../../store/store';
+
 import {observer} from 'mobx-react';
+import {StoreContext} from '../StoreProvider/StoreProvider';
 
 const Cell = observer(({id, img, isClicked}) => {
+    let store = useContext(StoreContext);
     let onClickHandler = () => {
         store.cellClickHandler(id);
     };

@@ -1,6 +1,9 @@
-import {store} from '../../store/store';
+import {StoreContext} from '../StoreProvider/StoreProvider';
+import {useContext} from 'react';
+
 
 let RestartGameButton = () => {
+    let store = useContext(StoreContext)
     return (
         <button onClick={() => {
             store.restartGame();
