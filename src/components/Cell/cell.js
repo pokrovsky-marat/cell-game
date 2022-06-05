@@ -14,10 +14,10 @@ const Cell = observer(({id, img, isClicked}) => {
     return (
         <div onClick={onClickHandler} className="cell">
             <div className={frontSideStyle}>
-                <img className='front-img' alt=''  src={`./img/${img}`}/>
+                <img width='100' height='100' className='front-img' alt=''  src={`./img/${img}`}/>
             </div>
             <div className={backSideStyle}>
-                <img width="30px" alt='' src={`./img/PLAYING_CARD_BACK.svg`}/>
+                <img width="30" height='100' alt='' src={`./img/PLAYING_CARD_BACK.svg`}/>
             </div>
         </div>);
 });
