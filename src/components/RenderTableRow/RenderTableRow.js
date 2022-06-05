@@ -1,6 +1,6 @@
 import Cell from '../Cell/cell';
 import './RenderTableRow.css';
-import {observer} from 'mobx-react';
+import {observer} from 'mobx-react-lite';
 
 const RenderTableRow = observer((props) => {
     return (

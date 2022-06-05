@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import './cell.css';
 
-import {observer} from 'mobx-react';
+import {observer} from 'mobx-react-lite';
 import {StoreContext} from '../StoreProvider/StoreProvider';
 
 const Cell = observer(({id, img, isClicked}) => {
@@ -14,10 +14,10 @@ const Cell = observer(({id, img, isClicked}) => {
     return (
         <div onClick={onClickHandler} className="cell">
             <div className={frontSideStyle}>
-                <img className='front-img'  src={`./img/${img}`}/>
+                <img className='front-img' alt=''  src={`./img/${img}`}/>
             </div>
             <div className={backSideStyle}>
-                <img width="30px" src={`./img/PLAYING_CARD_BACK.svg`}/>
+                <img width="30px" alt='' src={`./img/PLAYING_CARD_BACK.svg`}/>
             </div>
         </div>);
 });
