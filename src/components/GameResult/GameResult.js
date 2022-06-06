@@ -1,16 +1,12 @@
 import {pickEndingForRuWordStep} from '../../utils/utils';
 import {StoreContext} from '../StoreProvider/StoreProvider';
-import {useContext} from 'react';
+import React, {useContext} from 'react';
 
-let GameResult = ({amountOfMoves}) => {
-    let store = useContext(StoreContext)
-
+let GameResult = React.memo(({amountOfMoves}) => {
+    let store = useContext(StoreContext);
+    store.gameOver();
     return (
-        <>
-            {store.gameOver()}
-            <p>Поздравляю вы закончили игру
-                за {amountOfMoves} {pickEndingForRuWordStep(amountOfMoves)}</p>
-        </>
+        <p>Поздравляю вы закончили игру за {amountOfMoves} {pickEndingForRuWordStep(amountOfMoves)}</p>
     );
-};
+});
 export {GameResult};

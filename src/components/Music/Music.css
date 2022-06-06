@@ -1,0 +1,14 @@
+.music {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    max-width: 100%;
+    height: auto;
+    opacity: 50%;
+    transition: .3s;
+    margin-left: 25px;
+}
+
+.music:hover {
+    opacity: 90%;
+}

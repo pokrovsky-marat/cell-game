@@ -16,6 +16,7 @@ class Store {
     isGameStarted = false;
     //Количество ходов сделанных игроком
     amountOfMoves = 0;
+    isSoundOn = true;
 
     constructor() {
         makeAutoObservable(this);
@@ -27,8 +28,10 @@ class Store {
     }
 
     startGame = () => {
-        startGame.load();
-        startGame.play();
+        if (this.isSoundOn) {
+            startGame.load();
+            startGame.play();
+        }
         this.cells.map(item => item.isClicked = false);
         this.isGameStarted = true;
     };
@@ -43,17 +46,20 @@ class Store {
 
     };
     gameOver = () => {
-        applause.load();
-        applause.play();
+        if (this.isSoundOn) {
+            applause.load();
+            applause.play();
+        }
     };
-
     cellClickHandler = (id) => {
         //Если клетка уже открыта ничего не делать
         if (this.cells[id].isClicked) return;
 
         this.cells[id].isClicked = true;
-        clickSound.load();
-        clickSound.play();
+        if (this.isSoundOn) {
+            clickSound.load();
+            clickSound.play();
+        }
         this.amountOfMoves++;
         //Если это не первый ход, то
         if (this.currentCell) {
@@ -64,13 +70,18 @@ class Store {
                 //Если изображения совпадают
             } else {
                 this.currentCell = null;
-                clickSoundSuccess.load();
-                clickSoundSuccess.play();
+                if (this.isSoundOn) {
+                    clickSoundSuccess.load();
+                    clickSoundSuccess.play();
+                }
             }
             //Если это первый ход
         } else {
             this.currentCell = this.cells[id];
         }
+    };
+    toggleSound = () => {
+        this.isSoundOn = !this.isSoundOn;
     };
 }
 

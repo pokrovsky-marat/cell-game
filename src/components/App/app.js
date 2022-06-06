@@ -7,6 +7,7 @@ import {GameResult} from '../GameResult/GameResult';
 import {ChooseLevel} from '../ChooseLevel/ChooseLevel';
 import {useContext} from 'react';
 import {StoreContext} from '../StoreProvider/StoreProvider';
+import Music from '../Music/Music';
 
 
 const App = observer(() => {
@@ -31,6 +32,7 @@ const App = observer(() => {
                 {store.isGameStarted ?
                     <div className={'text-center mt-4'}>
                         <RestartGameButton/>
+                        <Music sound={store.isSoundOn}/>
                     </div> : ''}
 
                 {store.isGameOver ?
